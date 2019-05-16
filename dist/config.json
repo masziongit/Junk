@@ -1,0 +1,79 @@
+{
+  "port": 8888,
+  "ports": 9999,
+  "bodyLimit": "100kb",
+  "corsHeaders": [
+    "Link"
+  ],
+  "expire_day": 7,
+  "sqliteDB": {
+    "driver": "sqlite",
+    "config": {
+      "filename": "./prospect.db",
+      "log": true
+    },
+    "log": true
+  },
+  "dabaseTable": {
+    "prospect_profile": "prospect_profile",
+    "prospect_idp_log": "prospect_idp_log"
+  },
+  "oracle_option": {
+    "poolMin": 2,
+    "poolMax": 20,
+    "poolIncrement": 1
+  },
+  "errObj": {
+    "invParam": {
+      "error": "Invalid parameters"
+    },
+    "badRequest": {
+      "error": "Invalid request body"
+    },
+    "notFound": {
+      "error": "The requested id could not be found"
+    },
+    "internalServerError": {
+      "error": "Server side error"
+    }
+  },
+  "logRequestBody":false,
+  "logResponseBody":false,
+  "log4j_configure": {
+    "appenders": {
+      "dateFile": {
+        "type": "dateFile",
+        "filename": "./logs/app.log",
+        "pattern":".dd-MM-yyyy",
+        "compress": true
+      },
+      "console": {
+        "type": "console"
+      }
+    },
+    "categories": {
+      "default": {
+        "appenders": [
+          "dateFile"
+        ],
+        "level": "info"
+      },
+      "development": {
+        "appenders": [
+          "dateFile",
+          "console"
+        ],
+        "level": "debug"
+      }
+    }
+  },
+  "certs":{
+    "ca": "./certs/tmb-root-ca.cer",
+    "cert": "./certs/ekycuat.cer",
+    "key":"./certs/ekyc.key"
+  },
+  "crypto":{
+    "algorithm" : "aes-256-cbc",
+    "password" : "jwJ3j6bvHEtRrHUpbtf1"
+  }
+}
