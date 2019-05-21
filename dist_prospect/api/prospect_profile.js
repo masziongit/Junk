@@ -56,8 +56,8 @@ exports.default = function (_ref) {
         // logger.debug(`Get Request body : ${JSON.stringify(req.body)}`)
 
         var errors = (0, _check.validationResult)(req);
-        if (!errors.isEmpty()) {
-            logger.error(errors.array()[0].msg);
+        if (!errors.isEmpty() || util.checkObj(allfield, req.body)) {
+            logger.error(errRes.badRequest);
             return res.status(400).json(errRes.badRequest);
         }
 
