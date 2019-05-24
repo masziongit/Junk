@@ -1,0 +1,83 @@
+{
+  "port": 8888,
+  "ports": 9999,
+  "bodyLimit": "100kb",
+  "corsHeaders": [
+    "Link"
+  ],
+  "expire_day": 7,
+  "sqliteDB": {
+    "driver": "sqlite",
+    "config": {
+      "filename": "./prospect.db",
+      "log": true
+    },
+    "log": true
+  },
+  "dabaseTable": {
+    "prospect_profile": "prospect_profile",
+    "prospect_idp_log": "prospect_idp_log"
+  },
+  "oracle_option": {
+    "poolMin": 2,
+    "poolMax": 20,
+    "poolIncrement": 1
+  },
+  "errObj": {
+    "invParam": {
+      "error": "Invalid parameters"
+    },
+    "badRequest": {
+      "error": "Invalid request body"
+    },
+    "notFound": {
+      "error": "The requested id could not be found"
+    },
+    "internalServerError": {
+      "error": "Server side error"
+    }
+  },
+  "logRequestBody":false,
+  "logResponseBody":false,
+  "log4j_configure": {
+    "appenders": {
+      "dateFile": {
+        "type": "dateFile",
+        "filename": "./logs/app.log",
+        "pattern":".dd-MM-yyyy",
+        "compress": true
+      },
+      "console": {
+        "type": "console"
+      }
+    },
+    "categories": {
+      "default": {
+        "appenders": [
+          "dateFile"
+        ],
+        "level": "info"
+      },
+      "development": {
+        "appenders": [
+          "dateFile",
+          "console"
+        ],
+        "level": "debug"
+      }
+    }
+  },
+  "certs":{
+    "ca": "./certs/tmb-root-ca.cer",
+    "cert": "./certs/ekycuat.cer",
+    "key":"./certs/ekyc.key"
+  },
+  "crypto":{
+    "algorithm" : "aes-256-cbc",
+    "password" : "jwJ3j6bvHEtRrHUpbtf1"
+  },
+  "field":{
+    "all" : [ "crm_id",  "citizen_id",  "cid_issue_date",  "cid_expiry_date",  "passport_no",  "pp_issue_date",  "pp_expiry_date",  "title_th",  "firstname_th",  "lastname_th",  "title_en",  "firstname_en",  "lastname_en",  "birth_date",  "birth_place",  "reg_addr_nmbr",  "reg_addr_moo",  "reg_addr_building",  "reg_addr_soi",  "reg_addr_road",  "reg_district",  "reg_subdistrict",  "reg_country",  "reg_province",  "reg_postal_cd",  "mobile_no",  "gender",  "marital_status",  "nationality",  "other_nationality",  "education",  "occupation",  "income",  "country_income",  "source_income",  "purpose_for_open_account",  "purpose_for_other",  "pers_ph_nbr",  "pers_ph_ext",  "office_ph_nbr",  "office_ph_ext",  "con_addr_nmbr",  "con_addr_moo",  "con_addr_building",  "con_addr_soi",  "con_addr_road",  "con_district",  "con_subdistrict",  "con_country",  "con_province",  "con_postal_cd",  "company_name",  "off_addr_nmbr",  "off_addr_moo",  "off_addr_building",  "off_addr_soi",  "off_addr_road",  "off_district",  "off_subdistrict",  "off_country",  "off_province",  "off_postal_cd",  "current_same_registered_flag",  "office_same_registered_flag",  "fatca_ans",  "laser_number",  "dopa_flag",  "risklevel",  "risk_calculation_date",  "swf_status",  "email",  "occupation_specify",  "flow_status",  "e_consent_flag",  "ekyc_consent_flag",  "ekyc_consent_date",  "confidence_score",  "prospect_status",  "app_id",  "channel" ],
+    "req" : ["citizen_id", "prospect_status", "app_id"]
+  }
+}
